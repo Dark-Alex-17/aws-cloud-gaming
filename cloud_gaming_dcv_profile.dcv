@@ -1,0 +1,12 @@
+[connect]
+host=PLACEHOLDER
+port=8443
+user=Administrator
+password=PLACEHOLDER
+weburlpath=
+
+[version]
+format=1.0
+
+[input]
+enable-relative-mouse=false

@@ -1,0 +1,3 @@
+{
+  "app": "npx ts-node bin/cloud-gaming-on-ec2.ts"
+}
