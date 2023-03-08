@@ -117,6 +117,11 @@ verifyPrerequisites() {
   	exit 1
 	fi
 
+	if ! (hash cdk 2> /dev/null); then
+		printWarn "CDK is not installed. Installing now..." true
+		echo "$SUDO_PASSWORD" | sudo -k -S npm -g install aws-cdk@latest
+	fi
+
   checkAwsProfile
 }
 
