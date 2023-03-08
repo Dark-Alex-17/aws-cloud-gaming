@@ -29,7 +29,11 @@ Modify the following properties in the [cloud-gaming-on-ec2](cdk/bin/cloud-gamin
 | `SUBNET_AVAILABILITY_ZONE` | The availability zone of the subnet you provided                    |
 
 ## Running the application
-To run the application, simply run the `cloud-gaming.sh` script in the root directory and follow all instructions/menu choices and the script will take care of everything else!
+To run the application, simply run 
+```shell
+./cloud-gaming.sh
+```
+from the root directory and follow all instructions/menu choices and the script will take care of everything else!
 
 ## Debugging
 The scripts output logs to `/tmp/cloud-gaming.log` for easy debugging and auditing.
