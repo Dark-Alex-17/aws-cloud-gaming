@@ -73,7 +73,7 @@ getInstanceIp() {
 
 createDcvConnectionProfileFromTemplate() {
 	printInfo "Creating DCV connection profile from template"
-	PASSWORD="$(aws --profile $AWS_CLOUD_GAMING_PROFILE ec2 get-password-data --instance-id "$AWS_TEAM_BUILDING_EC2_INSTANCE_ID" --priv-launch-key ~/.ssh/insights-team-building-key-pair.pem --query 'PasswordData' --output text --no-cli-auto-prompt)"
+	PASSWORD="$(aws --profile $AWS_CLOUD_GAMING_PROFILE ec2 get-password-data --instance-id "$AWS_TEAM_BUILDING_EC2_INSTANCE_ID" --priv-launch-key ~/.ssh/"$AWS_CLOUD_GAMING_SSH_KEY".pem --query 'PasswordData' --output text --no-cli-auto-prompt)"
   PASSWORD=$(echo -n $PASSWORD)
 	sed -i "/^host=/c\host=$AWS_TEAM_BUILDING_EC2_INSTANCE_IP" cloud_gaming_dcv_profile.dcv
 	sed -i "/^password=/c\password=$PASSWORD" cloud_gaming_dcv_profile.dcv
