@@ -42,7 +42,7 @@ export class G4ADStack extends BaseEc2Stack {
             'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(\'https://community.chocolatey.org/install.ps1\'))',
             'choco feature enable -n=allowGlobalConfirmation',
             'choco install steam-rom-manager',
-            'choco install steam-client',
+            'choco install steam-client --ignore-checksums',
             'choco install microsoft-edge',
             `Start-Process msiexec.exe -Wait -ArgumentList '/I C:\\Users\\Administrator\\Desktop\\InstallationFiles\\2_NICEDCV-Server.msi /QN /L* "C:\\msilog.log"'`,
             `Start-Process msiexec.exe -Wait -ArgumentList '/I C:\\Users\\Administrator\\Desktop\\InstallationFiles\\3_NICEDCV-DisplayDriver.msi /QN /L* "C:\\msilog.log"'`,
