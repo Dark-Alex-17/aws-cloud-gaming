@@ -14,6 +14,7 @@ const ACCOUNT_ID = "PLACEHOLDER"
 const REGION = "us-east-1"
 const VPC_ID = 'PLACEHOLDER'
 const SUBNET_ID = 'PLACEHOLDER'
+const SUBNET_AVAILABILITY_ZONE = 'PLACEHOLDER'
 
 const user = app.node.tryGetContext("user");
 if (!user) {
@@ -47,5 +48,6 @@ new G4ADStack(app, `TeamBuildingCloudGaming-${user}`, {
     },
     user,
     vpcId: VPC_ID,
-    subnetId: SUBNET_ID
+    subnetId: SUBNET_ID,
+    subnetAvailabilityZone: SUBNET_AVAILABILITY_ZONE
 });

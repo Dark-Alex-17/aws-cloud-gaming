@@ -20,12 +20,13 @@ This repo will automate the creation and connection to an AWS EC2 spot instance 
 ### CDK Variables
 Modify the following properties in the [cloud-gaming-on-ec2](cdk/bin/cloud-gaming-on-ec2.ts) stack:
 
-| Parameter Name | Description                                                         |
-|----------------|---------------------------------------------------------------------|
-| `ACCOUNT_ID`   | The AWS account ID you want to use                                  |
-| `REGION`       | The AWS region in which you want the resources created              |
-| `VPC_ID`       | The ID of the VPC you wish to deploy the instance into              |
-| `SUBNET_ID`    | The ID of a public subnet that you want your instance deployed into |
+| Parameter Name             | Description                                                         |
+|----------------------------|---------------------------------------------------------------------|
+| `ACCOUNT_ID`               | The AWS account ID you want to use                                  |
+| `REGION`                   | The AWS region in which you want the resources created              |
+| `VPC_ID`                   | The ID of the VPC you wish to deploy the instance into              |
+| `SUBNET_ID`                | The ID of a public subnet that you want your instance deployed into |
+| `SUBNET_AVAILABILITY_ZONE` | The availability zone of the subnet you provided                    |
 
 ## Running the application
 To run the application, simply run the `cloud-gaming.sh` script in the root directory and follow all instructions/menu choices and the script will take care of everything else!

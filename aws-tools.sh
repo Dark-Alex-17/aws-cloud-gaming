@@ -166,12 +166,6 @@ deployCdk() {
   } | whiptail --title "Preparing CDK..." --gauge "Preparing CDK..." "$GAUGE_BOX_HEIGHT" "$GAUGE_BOX_WIDTH" 0
 
   declare pid
-  declare synthLogFile="${logFile}-synth.log"
-  printInfo "Running CDK synth and logging to $synthLogFile"
-  yes | npx cdk --no-color --require-approval never --profile $AWS_CLOUD_GAMING_PROFILE -c "user=$user" -c "localIp=$localIp" synth "TeamBuildingCloudGaming-$user" > $synthLogFile 2>&1 &
-  pid=$!
-  showTailBox "Synthesizing CDK" $pid $synthLogFile
-
   declare bootstrapLogFile="${logFile}-bootstrap.log"
   printInfo "Bootstrapping CDK and logging to $bootstrapLogFile"
   yes | npx cdk --no-color --require-approval never --profile $AWS_CLOUD_GAMING_PROFILE -c "user=$user" -c "localIp=$localIp" bootstrap > $bootstrapLogFile 2>&1 &

@@ -22,6 +22,7 @@ export interface BaseConfig extends StackProps {
     readonly instanceSize: InstanceSize;
     readonly vpcId: string;
     readonly subnetId: string;
+    readonly subnetAvailabilityZone: string;
     readonly sshKeyName: string;
     readonly volumeSizeGiB: number;
     readonly niceDCVDisplayDriverUrl: string;
@@ -37,7 +38,7 @@ export abstract class BaseEc2Stack extends Stack {
     constructor(scope: App, id: string, props: BaseConfig) {
         super(scope, id, props);
         this.props = props;
-        const { vpcId, subnetId, sshKeyName, volumeSizeGiB, openPorts, allowInboundCidr, user } = props;
+        const { vpcId, subnetId, subnetAvailabilityZone, sshKeyName, volumeSizeGiB, openPorts, allowInboundCidr, user } = props;
         const vpc = Vpc.fromLookup(this, "Vpc", { vpcId });
 
         const securityGroup = new SecurityGroup(this, `SecurityGroup-${user}`, {
@@ -82,7 +83,7 @@ export abstract class BaseEc2Stack extends Stack {
             instanceType: this.getInstanceType(),
             vpc,
             securityGroup,
-            vpcSubnets: vpc.selectSubnets({ subnets: [Subnet.fromSubnetAttributes(this, 'publicSubnet', {subnetId, availabilityZone: "us-east-1a"})] }),
+            vpcSubnets: vpc.selectSubnets({ subnets: [Subnet.fromSubnetAttributes(this, 'publicSubnet', {subnetId, availabilityZone: subnetAvailabilityZone})] }),
             keyName: sshKeyName,
             userData: this.getUserdata(),
             machineImage: MachineImage.latestWindows(WindowsVersion.WINDOWS_SERVER_2019_ENGLISH_FULL_BASE),

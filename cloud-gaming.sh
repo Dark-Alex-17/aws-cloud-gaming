@@ -41,7 +41,7 @@ createPrerequisitesMap() {
 	put $mapName "dialog" $linuxName
 	put $mapName "pulsemixer" $linuxName
 	put $mapName "nc" $linuxName
-	
+
 	put $mapName "mas" $darwinName
 	put $mapName "python" $darwinName
 	put $mapName "pulseaudio" $darwinName
@@ -96,7 +96,7 @@ verifyPrerequisites() {
 			printWarn "Installing the FlatHub repo for Flatpak if it doesn't already exist..."
 			echo "$SUDO_PASSWORD" | sudo -k -S flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 			printWarn "Installing SteamLink from FlatHub..."
-			echo "$SUDO_PASSWORD" | sudo -k -S flatpak install flathub com.valvesoftware.SteamLink
+			echo "$SUDO_PASSWORD" | sudo -k -S flatpak install -y flathub com.valvesoftware.SteamLink
 		fi
 #	elif [[ $KERNEL == "Darwin" ]]; then
 		# TODO check if SteamLink is installed, and if not, install it via mas-cli
