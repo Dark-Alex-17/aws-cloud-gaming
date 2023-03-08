@@ -17,8 +17,10 @@ prepareStream() {
     echo -e "XXX\n0\nInstalling NICE DCV Client... \nXXX"
     printInfo "Installing NICE DCV Viewer client"
 #    if [[ $kernel == "Linux" ]]; then
-    	wget -o nice-dcv-viewer.deb https://d1uj6qtbmh3dt5.cloudfront.net/2022.1/Clients/nice-dcv-viewer_2022.1.4251-1_amd64.ubuntu2004.deb > /dev/null 2>&1
-    	echo "$SUDO_PASSWORD" | sudo -k -S sh -c "dpkg -i nice-dcv-viewer.deb" > /dev/null 2>&1
+    	wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1~18.04.21_amd64.deb > /dev/null 2>&1
+      			echo "$SUDO_PASSWORD" | sudo -k -S sh -c "dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.21_amd64.deb" > /dev/null 2>&1
+          	wget https://d1uj6qtbmh3dt5.cloudfront.net/2022.1/Clients/nice-dcv-viewer_2022.1.4251-1_amd64.ubuntu2004.deb > /dev/null 2>&1
+          	echo "$SUDO_PASSWORD" | sudo -k -S sh -c "dpkg -i nice-dcv-viewer_2022.1.4251-1_amd64.ubuntu2004.deb" > /dev/null 2>&1
 #    elif [[ $kernel == "Darwin" ]]; then
 #    	if [[ $architecture == "x86_64" ]]; then
 #				wget -o nice-dcv-viewer.dmg https://d1uj6qtbmh3dt5.cloudfront.net/2022.1/Clients/nice-dcv-viewer-2022.1.4279.x86_64.dmg > /dev/null 2>&1
@@ -32,6 +34,7 @@ prepareStream() {
     echo -e "XXX\n33\nCleaning up... \nXXX"
     printInfo "Removing downloaded DCV Viewer installation"
     rm nice-dcv-viewer* > /dev/null 2>&1
+    rm libssl1* > /dev/null 2>&1
     echo -e "XXX\n66\nCreating Connection Profile from template... \nXXX"
     createDcvConnectionProfileFromTemplate
     echo -e "XXX\n100\nDone! \nXXX"
