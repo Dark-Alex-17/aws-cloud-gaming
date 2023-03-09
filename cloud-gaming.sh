@@ -325,7 +325,7 @@ deployInstance() {
   if (whiptail --fb --title "Setup" --yesno "We'll now go through the first time setup. Do you wish to continue?" "$BOX_HEIGHT" "$BOX_WIDTH"); then
     msgBox "For first time setups, ensure your terminal is full screen so you don't miss any instructions. If it's not, exit this application, enter full screen, then start again"
 
-    if (whiptail --fb --title "First Time Setup" --yesno "This will now perform first time setup for your cloud gaming instance. Is your terminal full screen?" --defaultno "$BOX_HEIGHT" "$BOX_WIDTH"); then
+    if (whiptail --fb --title "First Time Setup" --yesno "This will now perform first time setup for your cloud gaming instance. Is your terminal full screen?" "$BOX_HEIGHT" "$BOX_WIDTH"); then
     	printInfo "Running first time setup"
       msgBox "For the first run, some manual, one-time setup steps are required. When ready, hit 'OK' to continue and start the connection to your instance's desktop."
 
