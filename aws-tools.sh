@@ -94,8 +94,9 @@ startInstance() {
     showGaugeBoxForAwsCommand "$desiredState" "Starting Your Instance" "Successfully Started Your Instance!" "Failed to start your instance!"
     printInfo "Checking to see if IP changed"
   	instanceIp=$(getInstanceIp)
-  	if [[ $instanceIp != $AWS_TEAM_BUILDING_EC2_INSTANCE_IP ]]; then
+  	if [[ $instanceIp != "$AWS_TEAM_BUILDING_EC2_INSTANCE_IP" ]]; then
   		setConfigValue "AWS_TEAM_BUILDING_EC2_INSTANCE_IP" "$instanceIp"
+  		export AWS_TEAM_BUILDING_EC2_INSTANCE_IP="$instanceIp"
   		createDcvConnectionProfileFromTemplate
   	fi
 
