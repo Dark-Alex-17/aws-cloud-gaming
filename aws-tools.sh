@@ -56,7 +56,7 @@ waitForInstanceToBecomeAvailable() {
 		declare increment
 		increment=$(echo "scale=1; 100/90" | bc)
 		for ((i=0; i<=100; i=$(printf "%.0f" $(echo "scale=1; $i + $increment" | bc)))); do
-			if (timeout 10s nc -vz "$AWS_TEAM_BUILDING_EC2_INSTANCE_IP" 8443); then
+			if (timeout 10s nc -vz "$AWS_TEAM_BUILDING_EC2_INSTANCE_IP" 8443 2>&1 > /dev/null); then
 				break
 			fi
 			echo "$i"
