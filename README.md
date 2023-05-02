@@ -87,6 +87,12 @@ The `Stream Settings` menu in the `cloud-gaming.sh` script will guide you throug
 
 Note: A Shared stream will not overwrite your settings to connect to your personal instance. You'll just have to change back to your personal instance in Steam Link via the Gear icon -> Computers menu.
 
+## Troubleshooting
+> I can't connect to my instance again after rebooting
+
+Your public IP may have changed, so you may be blocked from the security group. To correct it, simply re-deploy the stack and skip the setup steps again.
+This will update the security group with your current public IP address and allow you access to the instance again.
+
 ## Built With
 * [Bash](https://www.gnu.org/software/bash/) - Shell that all the scripts are written in
 * [Node.js](https://nodejs.org/en/) - JS runtime for CDK
